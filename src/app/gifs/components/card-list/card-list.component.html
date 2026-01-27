@@ -1,0 +1,17 @@
+<div class="results-grid">
+    <div *ngFor="let gif of gifs" class="gif-card">
+
+        <div class="image-container">
+            <img [src]="gif.images.downsized_medium.url" [alt]="gif.title" class="gif-img">
+
+            <button class="download-overlay" (click)="onDownloadGif(gif.images.original.url, gif.title)">
+                <span class="download-icon">⬇️</span>
+            </button>
+        </div>
+
+        <div class="gif-footer">
+            <p>{{ gif.title || 'Giphy Result' }}</p>
+        </div>
+
+    </div>
+</div>

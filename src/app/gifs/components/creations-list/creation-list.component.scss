@@ -1,0 +1,38 @@
+/* src/app/gifs/components/creations-list/creation-list.component.scss */
+
+.my-creations-container {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.creations-grid {
+    display: flex;
+    /* Ponemos los GIFs uno al lado del otro */
+    flex-wrap: nowrap;
+    /* No permitimos que bajen a la siguiente línea */
+    gap: 10px;
+    overflow-x: auto;
+    /* Activamos el scroll horizontal si hay muchos */
+    padding: 10px 0;
+    height: 220px;
+    /* Limitamos la altura total de la sección */
+}
+
+.creation-card {
+    flex: 0 0 200px;
+    /* Forzamos a que cada GIF mida exactamente 200px de ancho */
+    height: 200px;
+    /* Forzamos a que cada GIF mida exactamente 200px de alto */
+    border-radius: 10px;
+    border: 2px solid #3b82f6;
+    overflow: hidden;
+    position: relative;
+
+    .creation-thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Esto evita que la imagen se estire o se vea gigante */
+    }
+}

@@ -1,0 +1,59 @@
+/* Variables */
+:root {
+    --bg-main: #09090b;
+    --bg-card: rgba(24, 24, 27, 0.8);
+    --accent: #3b82f6;
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--bg-main);
+    color: #f4f4f5;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Diseño para Computadora */
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    /* Sidebar fija a la izquierda */
+    min-height: 100vh;
+}
+
+.sidebar-section {
+    background: var(--bg-card);
+    border-right: 1px solid var(--glass-border);
+}
+
+.content-section {
+    padding: 2rem;
+}
+
+/* --- SOLUCIÓN PARA CELULAR (MÓVIL) --- */
+@media (max-width: 768px) {
+    .main-wrapper {
+        display: block !important;
+        /* Desactiva las columnas */
+    }
+
+    .sidebar-section {
+        width: 100% !important;
+        height: auto !important;
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+        position: relative;
+    }
+
+    .content-section {
+        width: 100% !important;
+        padding: 1rem !important;
+        box-sizing: border-box;
+    }
+
+    /* Forzamos que los componentes internos no se desborden */
+    app-sidebar,
+    .sidebar-section div {
+        width: 100% !important;
+    }
+}

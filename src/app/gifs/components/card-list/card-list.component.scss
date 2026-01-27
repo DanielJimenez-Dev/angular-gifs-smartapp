@@ -1,0 +1,76 @@
+.results-grid {
+    display: grid;
+    // Esto crea columnas automáticas que llenan el espacio disponible
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    padding: 20px 0;
+}
+
+.gif-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: scale(1.02);
+
+        .download-overlay {
+            opacity: 1; // El botón aparece al pasar el mouse
+        }
+    }
+}
+
+.image-container {
+    position: relative; // Necesario para que el botón se posicione dentro
+    width: 100%;
+    height: 200px;
+
+    .gif-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.download-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(59, 130, 246, 0.8); // Azul semi-transparente
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0; // Oculto por defecto para un look limpio
+    transition: opacity 0.3s ease, background 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+        background: rgba(37, 99, 235, 1);
+    }
+
+    .download-icon {
+        font-size: 1.2rem;
+    }
+}
+
+.gif-footer {
+    padding: 8px 12px;
+
+    p {
+        color: #e2e8f0;
+        font-size: 0.85rem;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

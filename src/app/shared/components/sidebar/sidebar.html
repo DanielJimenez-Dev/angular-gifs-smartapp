@@ -1,0 +1,14 @@
+<div class="sidebar-wrapper">
+    <h2 class="sidebar-brand">GifsApp</h2>
+    <hr class="separator">
+
+    <div class="history-container">
+        <h3 class="sidebar-title">Historial</h3>
+
+        <div class="history-list">
+            <button *ngFor="let tag of tags" (click)="searchTag(tag)" class="history-item">
+                # {{ tag | titlecase }}
+            </button>
+        </div>
+    </div>
+</div>

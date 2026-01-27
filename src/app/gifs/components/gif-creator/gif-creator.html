@@ -1,0 +1,32 @@
+<div class="creator-wrapper">
+    <div class="glass-card">
+        <h3 class="creator-title">Creador de GIFs Personalizados</h3>
+
+        <div class="drop-zone">
+            <div class="upload-icon">📸</div>
+            <p>Arrastra tus fotos aquí o haz clic para explorar</p>
+            <input type="file" multiple accept="image/*" class="file-input" (change)="onFilesSelected($event)">
+        </div>
+
+        <div class="preview-grid" *ngIf="imagePreviews.length > 0">
+            <div *ngFor="let img of imagePreviews" class="preview-item">
+                <img [src]="img" alt="preview">
+            </div>
+        </div>
+
+        <div class="progress-container" *ngIf="isGenerating">
+            <div class="progress-bar" [style.width.%]="progress"></div>
+            <span class="progress-text">Procesando: {{ progress }}%</span>
+        </div>
+
+        <div class="buttons-group" *ngIf="imagePreviews.length > 0">
+            <button class="btn-action" [disabled]="isGenerating" (click)="generateGif()">
+                {{ isGenerating ? 'Creando Magia... ✨' : 'Generar GIF ✨' }}
+            </button>
+
+            <button class="btn-action" [disabled]="isGenerating" (click)="clearPreview()">
+                Limpiar Barra 🗑️
+            </button>
+        </div>
+    </div>
+</div>

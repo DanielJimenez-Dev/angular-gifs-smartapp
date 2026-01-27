@@ -1,0 +1,40 @@
+.modern-layout {
+    display: flex;
+    height: 100vh;
+    padding: 1rem;
+    gap: 1rem;
+    background: radial-gradient(circle at top right, #1d4ed833, transparent);
+    /* Resplandor de fondo */
+}
+
+.sidebar-container {
+    width: 280px;
+    height: 100%;
+}
+
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 2rem;
+    /* Bordes super redondeados de 2026 */
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #fff, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.user-badge {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}

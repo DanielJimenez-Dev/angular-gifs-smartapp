@@ -1,0 +1,10 @@
+<div class="my-creations-container" *ngIf="creations.length > 0">
+    <h4 class="text-white mb-3">MIS CREACIONES ✨</h4>
+
+    <div class="creations-grid custom-scroll">
+        <div *ngFor="let url of creations" class="creation-card">
+            <img [src]="url" alt="Mi creación" class="creation-thumb">
+        </div>
+    </div>
+    <hr class="text-white">
+</div>
