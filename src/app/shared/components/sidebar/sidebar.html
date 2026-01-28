@@ -1,14 +1,24 @@
 <div class="sidebar-wrapper">
-    <h2 class="sidebar-brand">GifsApp</h2>
+    <div class="sidebar-header">
+        <h2 class="sidebar-brand">GifsApp</h2>
+        <div class="signature-container">
+            <p class="sidebar-signature-gradient">Smart Gifs By Daniel Alberto Jimenez Valderrama</p>
+        </div>
+    </div>
+
     <hr class="separator">
 
     <div class="history-container">
-        <h3 class="sidebar-title">Historial</h3>
+        <h3 class="sidebar-title">Historial Reciente</h3>
 
         <div class="history-list">
             <button *ngFor="let tag of tags" (click)="searchTag(tag)" class="history-item">
-                # {{ tag | titlecase }}
+                <span class="hashtag">#</span> {{ tag | titlecase }}
             </button>
         </div>
+
+        <p *ngIf="tags.length === 0" class="empty-history">
+            No hay búsquedas recientes
+        </p>
     </div>
 </div>

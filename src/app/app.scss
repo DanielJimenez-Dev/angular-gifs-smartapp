@@ -1,40 +1,111 @@
+/* --- LAYOUT 2026 --- */
+/* LAYOUT PRINCIPAL REFORZADO */
 .modern-layout {
     display: flex;
     height: 100vh;
-    padding: 1rem;
-    gap: 1rem;
-    background: radial-gradient(circle at top right, #1d4ed833, transparent);
-    /* Resplandor de fondo */
+    width: 100vw;
+    overflow: hidden;
+    /* El contenedor padre es estático */
+    background: #070708;
 }
 
-.sidebar-container {
-    width: 280px;
-    height: 100%;
+/* SIDEBAR IZQUIERDA (30%) */
+.sidebar-history {
+    width: 30%;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(0, 242, 255, 0.1);
+    overflow-y: auto;
+    /* Permite scroll si el historial es largo */
 }
 
+/* CONTENIDO PRINCIPAL (70%) */
 .main-content {
     flex: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
+    /* AQUÍ SE ACTIVA EL SCROLL PARA LOS GIFS */
+    padding: 2rem;
+    background: radial-gradient(circle at top right, #0f172a, #070708);
+
+    /* Scrollbar Estilo Futurista Daniel */
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: linear-gradient(#00f2ff, #0066ff);
+        border-radius: 10px;
+    }
+}
+
+.header-futuristic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1.5rem;
-    background: var(--bg-card);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    border-radius: 2rem;
-    /* Bordes super redondeados de 2026 */
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(0, 242, 255, 0.1);
+    margin-bottom: 2rem;
 }
 
-.gradient-text {
-    background: linear-gradient(to right, #fff, var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-.user-badge {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+.btn-create-gif-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: #000;
+    border: 2px solid #00f2ff;
+    border-radius: 12px;
+    color: #00f2ff;
+    font-weight: 900;
     text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2), inset 0 0 10px rgba(0, 242, 255, 0.1);
+
+    .icon {
+        font-size: 1.2rem;
+        filter: drop-shadow(0 0 5px #00f2ff);
+    }
+
+    /* Efecto de resplandor al pasar el mouse */
+    &:hover {
+        color: #000;
+        background: #00f2ff;
+        box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
+        transform: translateY(-2px);
+
+        .icon {
+            filter: brightness(0);
+        }
+    }
+
+    /* Animación de pulso constante */
+    &::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(0, 242, 255, 0.3), transparent);
+        transform: rotate(45deg);
+        transition: 0.5s;
+    }
+
+    &:hover::after {
+        left: 100%;
+    }
 }

@@ -1,25 +1,29 @@
-<div class="main-wrapper">
-    <div class="sidebar-section">
-        <app-sidebar></app-sidebar>
-    </div>
+<div class="modern-layout">
 
-    <div class="content-section">
-        <header class="glass-header">
-            <h1 class="gradient-text">Gifs App</h1>
-            <p class="user-badge">Daniel Alberto Jimenez Valderrama</p>
+    <aside class="sidebar-history">
+        <shared-sidebar></shared-sidebar>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="header-futuristic">
+            <button class="btn-create-gif-top" (click)="openEditor()">
+                <span class="icon">🚀</span>
+                <span class="text">Crear GIF</span>
+                <div class="btn-glow"></div>
+            </button>
+
+            <div class="search-right">
+                <gifs-search-box></gifs-search-box>
+            </div>
         </header>
 
-        <section class="creator-section">
-            <app-gif-creator></app-gif-creator>
-            <gifs-creations-list></gifs-creations-list>
+        <section class="gifs-viewport">
+            <h3 class="section-label">Explorar Gifs</h3>
+            <gifs-card-list></gifs-card-list>
         </section>
 
-        <section class="search-section">
-            <app-gifs-search-box></app-gifs-search-box>
-        </section>
+    </main>
 
-        <section class="results-section">
-            <app-card-list></app-card-list>
-        </section>
-    </div>
+    <app-gifs-editor></app-gifs-editor>
 </div>

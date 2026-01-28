@@ -1,0 +1,28 @@
+<div class="editor-overlay" *ngIf="editorService.isVisible">
+  <div class="editor-window futurist-card">
+
+    <div class="editor-header">
+      <h3 class="glow-text">SMART GIF CREATOR</h3>
+      <button class="btn-close" (click)="close()">×</button>
+    </div>
+
+    <div class="drop-zone-punteada" (click)="fileInput.click()">
+      <input type="file" #fileInput (change)="onFileSelected($event)" hidden accept="image/*">
+
+      <div class="placeholder-content" *ngIf="!imageLoaded">
+        <div class="camera-ring">
+          <span class="camera-icon">📸</span>
+        </div>
+        <p class="upload-text">SUBE TU IMAGEN</p>
+        <span class="sub-text">Click para explorar</span>
+      </div>
+
+      <canvas #canvasPreview [hidden]="!imageLoaded" width="450" height="320"></canvas>
+    </div>
+
+    <button class="btn-generate-final" [disabled]="!imageLoaded" (click)="generateAndDownload()">
+      GENERAR GIF ANIMADO
+    </button>
+
+  </div>
+</div>

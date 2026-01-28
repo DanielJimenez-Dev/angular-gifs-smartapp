@@ -2,8 +2,14 @@
 :root {
     --bg-main: #09090b;
     --bg-card: rgba(24, 24, 27, 0.8);
-    --accent: #3b82f6;
+    --accent: #00f2ff;
+    /* CAMBIO: Azul Futurista */
+    --accent-dark: #0066ff;
     --glass-border: rgba(255, 255, 255, 0.1);
+
+    /* NUEVAS VARIABLES PARA EL LOOK 2026 */
+    --glass-blur: blur(12px);
+    --text-muted: #a1a1aa;
 }
 
 body {
@@ -17,7 +23,6 @@ body {
 .main-wrapper {
     display: grid;
     grid-template-columns: 280px 1fr;
-    /* Sidebar fija a la izquierda */
     min-height: 100vh;
 }
 
@@ -30,11 +35,10 @@ body {
     padding: 2rem;
 }
 
-/* --- SOLUCIÓN PARA CELULAR (MÓVIL) --- */
+/* SOLUCIÓN PARA CELULAR (MÓVIL) - NO ELIMINADO */
 @media (max-width: 768px) {
     .main-wrapper {
         display: block !important;
-        /* Desactiva las columnas */
     }
 
     .sidebar-section {
@@ -51,7 +55,6 @@ body {
         box-sizing: border-box;
     }
 
-    /* Forzamos que los componentes internos no se desborden */
     app-sidebar,
     .sidebar-section div {
         width: 100% !important;
